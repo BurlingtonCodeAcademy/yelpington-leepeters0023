@@ -20,10 +20,6 @@ let restaurant;
 let coords;
 let navContainer = document.getElementsByClassName('navItem');
 
-/*fetch('https://json-server.burlingtoncodeacademy.now.sh/restaurants')
-let path = window.location.pathname // this returns a string 
-let pathArray = path.split('/'); 
-let id = pathArray.pop(); */
 let count = 0;
 getRestaurant();
 async function getRestaurant() { // this cycles until all promises have been fufilled 
@@ -41,20 +37,15 @@ async function getRestaurant() { // this cycles until all promises have been fuf
         coords = JSON.parse(restaurant.coords);
         L.marker(coords).addTo(mymap)
         notes = restaurant.notes;
-        navContainer[count].innerHTML = `<a href='https://json-server.burlingtoncodeacademy.now.sh/restaurants/${name}'>${name}</a>`;
+        navContainer[count].innerHTML = `<a href='post.html'>${name}</a>`;
         count++;
       }
       return jsonObj;
     })
 }
 
-/*
-  postList.forEach((post) => {
-    let title = post.title;
-    let id = post.id;
-    listContainer.innerHTML += `<li><a href='/post/${id}'>${title}</a></li>`;
-  })
-}
-
-
 // marker.fire('click') */
+/*fetch('https://json-server.burlingtoncodeacademy.now.sh/restaurants')
+let path = window.location.pathname // this returns a string 
+let pathArray = path.split('/'); 
+let id = pathArray.pop(); */
