@@ -11,6 +11,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 // | - - - ^ map stuff ^ - - - |
 // | - - - fetching - - - |
 let name;
+let id;
 let address;
 let phone;
 let website;
@@ -29,6 +30,7 @@ async function getRestaurant() { // this cycles until all promises have been fuf
     }).then((jsonObj) => {
       console.log(jsonObj);
       for (const restaurant of jsonObj) {
+        id = restaurant.id;
         name = restaurant.name;
         address = restaurant.address;
         phone = restaurant.phone;
@@ -37,7 +39,7 @@ async function getRestaurant() { // this cycles until all promises have been fuf
         coords = JSON.parse(restaurant.coords);
         L.marker(coords).addTo(mymap)
         notes = restaurant.notes;
-        navContainer[count].innerHTML = `<a href='post.html'>${name}</a>`;
+        navContainer[count].innerHTML = `<a href=https://json-server.burlingtoncodeacademy.now.sh/#${id}'>${name}</a>`;
         count++;
       }
       return jsonObj;

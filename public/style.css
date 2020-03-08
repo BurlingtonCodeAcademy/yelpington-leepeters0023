@@ -101,7 +101,6 @@ h1 {
     flex-direction: column;
     position: relative;
     margin: 10px;
-    cursor: pointer;
     font-family: 'Noto Sans', sans-serif;
   }
 a:link {
