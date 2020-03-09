@@ -19,7 +19,8 @@ let hours;
 let notes;
 let restaurant;
 let coords;
-let navContainer = document.getElementsByClassName('navItem');
+let navContainer = document.getElementsByClassName
+('navItem');
 
 let count = 0;
 getRestaurant();
@@ -37,9 +38,12 @@ async function getRestaurant() { // this cycles until all promises have been fuf
         website = restaurant.website;
         hours = restaurant.hours;
         coords = JSON.parse(restaurant.coords);
-        L.marker(coords).addTo(mymap)
+        L.marker(coords).addTo(mymap).on('click', onClick)
+        function onClick() {
+          window.open(`post.html/#${id}`);
+        }
         notes = restaurant.notes;
-        navContainer[count].innerHTML = `<a href=https://json-server.burlingtoncodeacademy.now.sh/#${id}'>${name}</a>`;
+        navContainer[count].innerHTML = `<a href=post.html/#${id}'>${name}</a>`;
         count++;
       }
       return jsonObj;

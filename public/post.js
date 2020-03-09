@@ -9,12 +9,11 @@ let restaurant;
 let coords;
 let post;
 let count = 0;
-let path = window.location.pathname 
 let name = document.location.hash.slice(1) 
 
 getPost();
 async function getPost() {
-  post = await fetch(`locations.json`)
+  post = await fetch(`locations.json`${:name})
     .then((response) => {
       return response.json()
     }).then((jsonObj) => {
@@ -26,9 +25,13 @@ async function getPost() {
       website = post.website;
       hours = post.hours;
       notes = post.notes;
+      coords = JSON.parse(post.coords);
+      L.marker(coords).addTo(mymap)
       name[count].innerHTML = name
       count++
       }
       return jsonObj;
     })
 }
+
+
