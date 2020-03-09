@@ -37,13 +37,13 @@ async function getRestaurant() { // this cycles until all promises have been fuf
         phone = restaurant.phone;
         website = restaurant.website;
         hours = restaurant.hours;
+        notes = restaurant.notes;
         coords = JSON.parse(restaurant.coords);
         L.marker(coords).addTo(mymap).on('click', onClick)
         function onClick() {
           window.open(`post.html/#${id}`);
         }
-        notes = restaurant.notes;
-        navContainer[count].innerHTML = `<a href=post.html/#${id}'>${name}</a>`;
+        navContainer[count].innerHTML = `<a href="post.html#${id}">${name}</a>`;
         count++;
       }
       return jsonObj;
