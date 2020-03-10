@@ -40,7 +40,7 @@ async function getRestaurant() { // this cycles until all promises have been fuf
         coords = JSON.parse(restaurant.coords);
         L.marker(coords).addTo(mymap).on('click', onClick)
         function onClick() {
-          giwindow.open(`post.html#${id},'_self'`); 
+          window.open(`post.html#${id}, '_self'`); 
         }
         navContainer[count].innerHTML = `<a href="post.html#${id}">${name}</a>`;
         count++;

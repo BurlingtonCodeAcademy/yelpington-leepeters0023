@@ -37,7 +37,7 @@ async function getRestaurant() {
         name = singleRest.name;
         document.getElementById('name').textContent = name;
         address = singleRest.address;
-        document.getElementById('address').textContent = addres;
+        document.getElementById('address').textContent = address;
         phone = singleRest.phone;
         document.getElementById('phone').textContent = phone;
         website = singleRest.website;
