@@ -1,10 +1,10 @@
-/*  - - - - color scheme  - - - - */
+/*  - - - - color scheme  - - - -
 /* #61892F /* primary green
 #86C232 /* accent green
 #222629 /* black
 #474B4F /* dark grey
 #6B6E70 /* light grey
-/*  - - - - fonts  - - - - */
+ */
 #header {
   display: flex;
   align-items: center;
@@ -36,7 +36,6 @@ h1 {
   align-items: center;
   margin-left: 10px;
 }
-
 .menu {
   background-color:#222629;
   overflow: hidden;
@@ -59,8 +58,9 @@ h1 {
   transition: all .5s ease-out;
   stroke-width: 1px white;
 }
-/*  - - - - fonts end - - - - */ 
+
 /*  - - - - buttons - - - - */ 
+
 /*  - - - - buttons end - - - - */ 
 #main {
   display: grid;
@@ -183,4 +183,22 @@ a:link {
 .icon {
   width: 25px;
   height: 25px
+}
+
+#footer-button {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-right: 70px;
+  justify-content: ;
+}
+.buttonL {
+  background-color: rgb(95, 97, 95); 
+  border: none;
+  font-family: Roboto, Courier;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
 }

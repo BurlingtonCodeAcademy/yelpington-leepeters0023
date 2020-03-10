@@ -1,4 +1,14 @@
 
+let mymap = L.map('mapid').setView([44.475, -73.212], 13)
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+  maxZoom: 18,
+  id: 'mapbox/dark-v10',
+  tileSize: 512,
+  zoomOffset: -1,
+  accessToken: 'pk.eyJ1IjoibHBldGVyczAwMjMiLCJhIjoiY2s3ZjU1NTB4MTZ2YTNtbXl3djR1OGd0eiJ9.GfFkcLF5-CITMYpJOF4weQ'
+}).addTo(mymap);
+// | - - - ^ map stuff ^ - - - |
 let name = document.getElementById('name').innerHTML;
 let address = document.getElementById('address').innerHTML;
 let phone = document.getElementById('phone').innerHTML;
@@ -6,63 +16,41 @@ let website = document.getElementById('website').innerHTML;
 let hours = document.getElementById('hours').innerHTML;
 let notes = document.getElementById('notes').innerHTML;
 let coords;
-let post;
+let restaurant;
 let id;
 let count = 0;
-let individualId = document.location.hash.slice(1) // be aware that this returns an array // this is actually id and was correct the first time, what has been clicked 
-console.log(individualId)
-getIndividualPost()
-async function individualPost() {
-post = await fetch(`locations.json`) 
-  .then(res => res.json()) // this is called an implicit return, if we're not passing anything we don't need to curly braces, I think. Doesn't actually matter. 
-  .then((jsonRes) => {
-    console.log(jsonRes) // json res is an array
-    // displayName.innerText = jsonRes.name
-    for (post of jsonRes) {
-      if (individualId === id) {
-        console.log(name)
-        name = post.name;
-        address = post.address;
-        phone = post.phone;
-        website = post.website;
-        hours = post.hours;
-        notes = post.notes;
-        coords = JSON.parse(post.coords);
-        //L.marker(coords).addTo(mymap)
-        //id[count].innerHTML = id
-        //count++
-       }
-      }
-      return jsonRes;
-    })
-}
+let individualId = document.location.hash.slice(1) 
 
-    // fun fact: we can do fetches inside of fetches
-    //fetch(`https://nominatim...${jsonRes.address}`)
-      //.then(res => res.json()) 
-  //})
-/*getPost();
-async function getPost() {
-  post = await fetch(`locations.json`${:name})
+getRestaurant();
+async function getRestaurant() {
+  restaurant = await fetch(`locations.json`)
     .then((response) => {
       return response.json()
     }).then((jsonObj) => {
-      console.log(jsonObj);
-      for (post of jsonObj) {
-      name = post.name;
-      address = post.address;
-      phone = post.phone;
-      website = post.website;
-      hours = post.hours;
-      notes = post.notes;
-      coords = JSON.parse(post.coords);
-      L.marker(coords).addTo(mymap)
-      name[count].innerHTML = name
-      count++
+      for (let i = 0; i < jsonObj.length; i++) {
+        if (jsonObj.id[i] === individualId) {
+          console.log('working')
+        }
+      }
+          if ("id" === individualId){
+            for (const restaurant of jsonObj) {
+              console.log('inside loop')
+            name = restaurant.name;
+            address = restaurant.address;
+            phone = restaurant.phone;
+            website = restaurant.website;
+            hours = restaurant.hours;
+            notes = restaurant.notes;
+            coords = JSON.parse(restaurant.coords);
+            L.marker(coords).addTo(mymap)
+            }
       }
       return jsonObj;
     })
 }
-*/ 
+      
+    
+      
+        
 
-// single page web app 
+

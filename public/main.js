@@ -29,7 +29,6 @@ async function getRestaurant() { // this cycles until all promises have been fuf
     .then((response) => {
       return response.json()
     }).then((jsonObj) => {
-      console.log(jsonObj);
       for (const restaurant of jsonObj) {
         id = restaurant.id;
         name = restaurant.name;
@@ -49,9 +48,3 @@ async function getRestaurant() { // this cycles until all promises have been fuf
       return jsonObj;
     })
 }
-
-// marker.fire('click') */
-/*fetch('https://json-server.burlingtoncodeacademy.now.sh/restaurants')
-let path = window.location.pathname // this returns a string 
-let pathArray = path.split('/'); 
-let id = pathArray.pop(); */
