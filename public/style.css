@@ -58,9 +58,24 @@ h1 {
   transition: all .5s ease-out;
   stroke-width: 1px white;
 }
-
 /*  - - - - buttons - - - - */ 
-
+#footer-button {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-right: 70px;
+  justify-content: ;
+}
+.buttonL {
+  background-color: rgb(95, 97, 95); 
+  border: none;
+  font-family: Roboto, Courier;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+}
 /*  - - - - buttons end - - - - */ 
 #main {
   display: grid;
@@ -85,7 +100,6 @@ h1 {
   scrollbar-color: #86C232;
   background-color: #6B6E70;
   justify-content: space-between;
-  
 }
 .navItem {
   display: flex;
@@ -107,7 +121,6 @@ a:link {
   text-decoration: none;
   color: #222629;
 }
-
 #restaurantPage {
   display: flex;
   align-items: center;
@@ -185,20 +198,3 @@ a:link {
   height: 25px
 }
 
-#footer-button {
-  font-size: 16px;
-  margin-top: 10px;
-  margin-right: 70px;
-  justify-content: ;
-}
-.buttonL {
-  background-color: rgb(95, 97, 95); 
-  border: none;
-  font-family: Roboto, Courier;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
-  display: inline-block;
-  cursor: pointer;
-  text-decoration: none;
-}

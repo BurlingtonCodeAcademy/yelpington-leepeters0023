@@ -28,8 +28,8 @@ async function getRestaurant() { // this cycles until all promises have been fuf
   restaurant = await fetch(`locations.json`)
     .then((response) => {
       return response.json()
-    }).then((jsonObj) => {
-      for (const restaurant of jsonObj) {
+    }).then((jsonObj) => { // jsonObj returns an array
+      for (const restaurant of jsonObj) { // cycle to assign values for each
         id = restaurant.id;
         name = restaurant.name;
         address = restaurant.address;
@@ -40,7 +40,7 @@ async function getRestaurant() { // this cycles until all promises have been fuf
         coords = JSON.parse(restaurant.coords);
         L.marker(coords).addTo(mymap).on('click', onClick)
         function onClick() {
-          window.open(`post.html/#${id}`);
+          window.open(`post.html/#${id}`); 
         }
         navContainer[count].innerHTML = `<a href="post.html#${id}">${name}</a>`;
         count++;
