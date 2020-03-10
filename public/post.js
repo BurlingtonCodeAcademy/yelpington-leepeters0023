@@ -9,16 +9,15 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: 'pk.eyJ1IjoibHBldGVyczAwMjMiLCJhIjoiY2s3ZjU1NTB4MTZ2YTNtbXl3djR1OGd0eiJ9.GfFkcLF5-CITMYpJOF4weQ'
 }).addTo(mymap);
 // | - - - ^ map stuff ^ - - - |
-let name = document.getElementById('name')
-let address = document.getElementById('address')
-let phone = document.getElementById('phone')
-let website = document.getElementById('website')
-let hours = document.getElementById('hours')
-let notes = document.getElementById('notes')
+let name;
+let address;
+let phone;
+let website;
+let hours;
+let notes;
 let coords;
 let restaurant;
 let id;
-let count = 0;
 let individualId = document.location.hash.slice(1) 
 
 getRestaurant();
@@ -32,28 +31,25 @@ async function getRestaurant() {
       for (let object of jsonObj) {
         if (object.id===individualId) {
           singleRest = object
-          console.log(object)
+          console.log(singleRest)
         }
-      }
-      //if (jsonObj[id] === individualId) {
-        //for (const restaurant of jsonObj) {
-        console.log('inside loop')
-          name = singleRest.name;
-          address = singleRest.address;
-          phone = singleRest.phone;
-          website = singleRest.website;
-          hours = singleRest.hours;
-          notes = singleRest.notes;
-          coords = JSON.parse(restaurant.coords);
-          L.marker(coords).addTo(mymap)
-        //}
-      //}
-    return jsonObj;
+      } 
+        name = singleRest.name;
+        document.getElementById('name').textContent = name;
+        address = singleRest.address;
+        document.getElementById('address').textContent = addres;
+        phone = singleRest.phone;
+        document.getElementById('phone').textContent = phone;
+        website = singleRest.website;
+        document.getElementById('website').textContent = website;
+        hours = singleRest.hours;
+        document.getElementById('hours').textContent = hours;
+        notes = singleRest.notes;
+        document.getElementById('notes').textContent = notes;
+        coords = JSON.parse(singleRest.coords);
+        L.marker(coords).addTo(mymap)
+          return jsonObj;
  })
 }
       
-    
-      
-        
-
-
+  
