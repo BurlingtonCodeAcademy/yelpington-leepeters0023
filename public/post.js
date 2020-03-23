@@ -9,6 +9,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: 'pk.eyJ1IjoibHBldGVyczAwMjMiLCJhIjoiY2s3ZjU1NTB4MTZ2YTNtbXl3djR1OGd0eiJ9.GfFkcLF5-CITMYpJOF4weQ'
 }).addTo(mymap);
 // | - - - ^ map stuff ^ - - - |
+// delcare all vars into global scope
 let name;
 let address;
 let phone;
@@ -27,8 +28,8 @@ async function getRestaurant() {
     return response.json()
   }).then((jsonObj) => {
       console.log(jsonObj)
-      let singleRest;
-      for (let object of jsonObj) {
+      let singleRest; // needed a second var here to store individual location data 
+      for (let object of jsonObj) { // matches what's been clicked with the required location data and assigns to var
         if (object.id===individualId) {
           singleRest = object
           console.log(singleRest)

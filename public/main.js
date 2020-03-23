@@ -9,7 +9,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: 'pk.eyJ1IjoibHBldGVyczAwMjMiLCJhIjoiY2s3ZjU1NTB4MTZ2YTNtbXl3djR1OGd0eiJ9.GfFkcLF5-CITMYpJOF4weQ'
 }).addTo(mymap);
 // | - - - ^ map stuff ^ - - - |
-// | - - - fetching - - - |
+// initialize all variables below to global scope
 let name;
 let id;
 let address;
@@ -20,7 +20,7 @@ let notes;
 let restaurant;
 let coords;
 let navContainer = document.getElementsByClassName
-('navItem');
+  ('navItem');
 
 let count = 0;
 getRestaurant();
@@ -38,9 +38,9 @@ async function getRestaurant() { // this cycles until all promises have been fuf
         hours = restaurant.hours;
         notes = restaurant.notes;
         coords = JSON.parse(restaurant.coords);
-        L.marker(coords).addTo(mymap).on('click', onClick)
-        function onClick() {
-          window.open(`post.html#${id}, '_self'`); 
+        L.marker(coords).addTo(mymap).on('click', onClick) // adds marker to map
+        function onClick() { // add click event to location 
+          window.open(`post.html#${id}, '_self'`);
         }
         navContainer[count].innerHTML = `<a href="post.html#${id}">${name}</a>`;
         count++;
